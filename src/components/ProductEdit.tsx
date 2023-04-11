@@ -1,8 +1,7 @@
 import React from "react";
 import {
-  LineChart,
-  Line,
   XAxis,
+  CartesianGrid,
   YAxis,
   AreaChart, Area,
   ResponsiveContainer,
@@ -133,12 +132,14 @@ const ProductEdit = () => {
         />
       </div>
       <div className='charts__big-chart'>
-      <div style={{ height: "248px", width: "768px" }}>
+      <div style={{ height: "248px", width: "768px", border: '1px solid #0A0A0A', borderRadius: '8px' , padding: '20px'}}>
         <ResponsiveContainer>
           <AreaChart data={data}>
           <XAxis dataKey="name" />
           <YAxis />            
             <Tooltip />
+            <CartesianGrid strokeDasharray="3 3" />
+
             <Area type="monotone" dataKey="income" stroke="#FF0000" fillOpacity={0.3} fill="#FF0000" />
           </AreaChart>
         </ResponsiveContainer>
