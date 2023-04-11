@@ -4,6 +4,20 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
+.charts__box {
+width: 304px;
+height: 284px;
+left: 824px;
+top: 552px;
+
+/* brand/primary */
+
+background: #EF2C5A;
+border-radius: 8px;
+display: flex;
+flex-direction: column;
+color: #fff;
+}
 
 @tailwind base;
 @tailwind components;

@@ -1,6 +1,5 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom';
-import ProductView from './ProductView';
 
 const Main:React.FC = () => {
   return (

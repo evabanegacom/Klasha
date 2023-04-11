@@ -2,7 +2,6 @@ import { Route, Routes } from 'react-router-dom';
 import Header from './Header';
 import Main from './components/Main';
 import Sidebar from './Layout/Sidebar';
-import ProductView from './components/ProductView';
 import ProductEdit from './components/ProductEdit'; 
 import Navbar from './components/Navbar/Navbar';
 import TransactionTable from './components/Navbar/Table/Table';
