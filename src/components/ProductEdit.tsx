@@ -100,14 +100,13 @@ const Charts: React.FC<Props> = ({ bgcolor, month, price, date, textColor}) => {
 const ProductEdit = () => {
   return (
     <div className="charts__container-div">
+      <h4>Sales overview</h4>
       <div className='charts__container'>
-        <Charts
-          bgcolor="#fff"
-          month=""
-          price="$ 20,400"
-          date="Today's sales"
-          textColor="#000000"
-        />
+      <div className="chart__container">
+      <div style={{color: '#000000'}} className="chart__date">Today's Sales</div>
+      
+      <div style={{color: '#000000'}}>$24,000</div>
+    </div>
         <Charts
           bgcolor="black"
           month="This Month"
