@@ -4,35 +4,73 @@ import {
   Line,
   XAxis,
   YAxis,
-  CartesianGrid,
+  AreaChart, Area,
   ResponsiveContainer,
+  Tooltip
 } from "recharts";
 import "./Product.css";
 
 const data = [
-  { name: "Jan", value: 400 },
-  { name: "Feb", value: 300 },
-  { name: "Mar", value: 200 },
-  { name: "Apr", value: 278 },
-  { name: "May", value: 189 },
-  { name: "Jun", value: 209 },
-  { name: "Jul", value: 349 },
-  { name: "Aug", value: 200 },
-  { name: "Sep", value: 278 },
-  { name: "Oct", value: 189 },
-  { name: "Nov", value: 239 },
-  { name: "Dec", value: 400 },
-];
-
-const seconddata = [
-  { name: "20 Aug", value: 1500 },
-  { name: "26 Aug", value: 2300 },
-  { name: "27 Aug", value: 2800 },
-  { name: "28 Aug", value: 2200 },
-  { name: "29 Aug", value: 2400 },
-  { name: "30 Aug", value: 3000 },
-  { name: "31 Aug", value: 2700 },
-  { name: "01 Sep", value: 3200 },
+  {
+    name: "Jan",
+    income: 4000,
+    expenses: 2400,
+  },
+  {
+    name: "Feb",
+    income: 3000,
+    expenses: 1398,
+  },
+  {
+    name: "Mar",
+    income: 2000,
+    expenses: 9800,
+  },
+  {
+    name: "Apr",
+    income: 2780,
+    expenses: 3908,
+  },
+  {
+    name: "May",
+    income: 1890,
+    expenses: 4800,
+  },
+  {
+    name: "Jun",
+    income: 2390,
+    expenses: 3800,
+  },
+  {
+    name: "Jul",
+    income: 340,
+    expenses: 4300,
+  },
+  {
+    name: "Aug",
+    income: 3490,
+    expenses: 4300,
+  },
+  {
+    name: "Sep",
+    income: 3490,
+    expenses: 4300,
+  },
+  {
+    name: "Oct",
+    income: 3490,
+    expenses: 4300,
+  },
+  {
+    name: "Nov",
+    income: 3490,
+    expenses: 4300,
+  },
+  {
+    name: "Dec",
+    income: 3490,
+    expenses: 4300,
+  },
 ];
 
 interface Props {
@@ -40,19 +78,22 @@ interface Props {
   month: string;
   price: string;
   date: string;
+  textColor: string;
 }
 
-const Charts: React.FC<Props> = ({ bgcolor, month, price, date }) => {
+const Charts: React.FC<Props> = ({ bgcolor, month, price, date, textColor}) => {
   return (
     <div style={{ background: bgcolor }} className="chart__container">
-      <div className="chart__date">{date}</div>
+      <div style={{color: textColor}} className="chart__date">{date}</div>
       <ResponsiveContainer>
-        <LineChart data={data}>
-          <Line type="monotone" dataKey="value" stroke="red" />
-        </LineChart>
+        <AreaChart data={data}>
+        <Tooltip />
+
+        <Area type="monotone" dataKey="income" stroke="#FF0000" fillOpacity={0.3} fill="#FF0000" />
+        </AreaChart>
       </ResponsiveContainer>
-      <div>{month}</div>
-      <div>{price}</div>
+      <div style={{color: textColor}}>{month}</div>
+      <div style={{color: textColor}}>{price}</div>
     </div>
   );
 };
@@ -60,52 +101,46 @@ const Charts: React.FC<Props> = ({ bgcolor, month, price, date }) => {
 const ProductEdit = () => {
   return (
     <div className="charts__container-div">
-      <div style={{ display: "flex", gap: "20px" }}>
+      <div className='charts__container'>
         <Charts
           bgcolor="#fff"
-          month="This year"
+          month=""
           price="$ 20,400"
-          date="24 Aug - 01 Sep 21"
+          date="Today's sales"
+          textColor="#000000"
         />
         <Charts
           bgcolor="black"
           month="This Month"
           price="$ 16,400"
           date="24 Aug - 01 Sep 21"
+          textColor="#fff"
+
         />
         <Charts
-          bgcolor="green"
+          bgcolor="transparent"
           month="This week"
           price="23,400"
           date="24 Aug - 01 Sep 21"
+          textColor="#000000"
         />
         <Charts
-          bgcolor="blue"
+          bgcolor="transparent"
           month="Today"
           price="$ 2,400"
           date="24 Aug - 01 Sep 21"
+          textColor="#000000"
         />
       </div>
-      <div className='flex justify-evenly'>
+      <div className='charts__big-chart'>
       <div style={{ height: "248px", width: "768px" }}>
         <ResponsiveContainer>
-          <LineChart data={seconddata}>
-            <Line type="monotone" dataKey="value" stroke="red" />
-            <XAxis dataKey="name" />
-            <YAxis unit="k" />
-            {/* <CartesianGrid strokeDasharray="3 3" /> */}
-            <Line
-              type="monotone"
-              dataKey="price"
-              stroke="#8884d8"
-              strokeWidth={2}
-              dot={false}
-              style={{
-                background:
-                  "linearGradient(0deg, #EF2C5A -435.62%, rgba(239, 44, 90, 0) 93.15%)",
-              }}
-            />
-          </LineChart>
+          <AreaChart data={data}>
+          <XAxis dataKey="name" />
+          <YAxis />            
+            <Tooltip />
+            <Area type="monotone" dataKey="income" stroke="#FF0000" fillOpacity={0.3} fill="#FF0000" />
+          </AreaChart>
         </ResponsiveContainer>
       </div>
       <div className='charts__box'>

@@ -1,22 +1,42 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
+
 .charts__box {
-width: 304px;
-height: 284px;
-left: 824px;
-top: 552px;
+  width: 300px;
+  height: 275px;
+  background: #ef2c5a;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  justify-content: space-between;
+  padding: 1rem;
+}
 
-/* brand/primary */
+.charts__box button {
+  background: #0a0a0a;
+  padding: 14px 5px;
+  border: none;
+  width:130px;
+  outline: none;
+  border-radius: 8px;
+}
 
-background: #EF2C5A;
-border-radius: 8px;
-display: flex;
-flex-direction: column;
-color: #fff;
+.charts__box div {
+  width: 180px;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 768px){
+  .charts__box {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 1rem;
+  }
 }
 
 @tailwind base;

@@ -3,8 +3,6 @@ import {  FaSignOutAlt, FaBars } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 import './Sidebar.css';
 import { FiHelpCircle } from 'react-icons/fi';
-// import logo from '@/assets/images/chisquares-logo.svg';
-// import chrisIcon from '@/assets/images/chis-icon.svg';
 import { BiHomeAlt } from 'react-icons/bi';
 import { BsFolder2Open, BsArrowLeftCircle } from 'react-icons/bs';
 import { TbFiles } from 'react-icons/tb';
